@@ -1,21 +1,27 @@
 ---
 interface Props {
+  status: string;
+  link: string;
   title: string;
   body: string;
   stack: string;
   svgPath: string;
 }
 
-const { title, body, stack, svgPath} = Astro.props;
+const { status, link, title, body, stack, svgPath} = Astro.props;
 ---
 
-<article class="w-full p-4 grid grid-cols-[1fr_auto] items-center gap-2 font-gt text-xs x768:text-base rounded-2xl border-2 border-Heavy-Green">		
-  <section class="w-full flex flex-col gap-2">
-    <h2 class="font-normal">{title}</h2>
-    <p class="font-light">
-      {body}
-    </p>
-    <p class="font-normal">{stack}</>
-  </section>
-  <img class="size-20 x768:size-24" src={svgPath} alt={`${title} logo`}>
-</article>
+<abbr title={status} class="w-full decoration no-underline">
+  <a href={link} target="_blank" class="w-full">
+    <article class="w-full p-4 grid grid-cols-[1fr_auto] items-center gap-2 font-gt text-xs x768:text-base rounded-2xl border-2 border-Heavy-Green">		
+      <section class="w-full flex flex-col gap-2">
+        <h2 class="font-normal">{title}</h2>
+        <p class="font-light">
+          {body}
+        </p>
+        <p class="font-normal">{stack}</>
+      </section>
+      <img class="size-20 x768:size-24" src={svgPath} alt={`${title} logo`}>
+    </article>
+  </a>
+</abbr>
