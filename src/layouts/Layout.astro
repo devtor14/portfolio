@@ -1,29 +1,73 @@
 ---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta
+      name='description'
+      content='Astro description'
+    />
+    <meta
+      name='viewport'
+      content='width=device-width'
+    />
+    <link
+      rel='icon'
+      type='image/svg+xml'
+      href='/favicon.svg'
+    />
+    <meta
+      name='generator'
+      content={Astro.generator}
+    />
+    <title>{title}</title>
+  </head>
+  <body class='mx-auto my-0 min-h-screen max-w-3xl px-8 py-4 grid grid-rows-[auto_1fr_auto] gap-8 items-center bg-Base'>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
 </html>
 <style is:global>
-	:root {
-	}
-	html {
-		font-family: system-ui, sans-serif;
-	}
+  @font-face {
+    font-family: ACORN;
+    src: url('../fonts/acorn/Medium.woff2');
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: ACORN;
+    src: url('../fonts/acorn/Bold.woff2');
+    font-weight: 700;
+  }
+
+  @font-face {
+    font-family: GT;
+    src: url('../fonts/gt/Light.woff2');
+    font-weight: 300;
+  }
+  @font-face {
+    font-family: GT;
+    src: url('../fonts/gt/Regular.woff2');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: GT;
+    src: url('../fonts/gt/Medium.woff2');
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: GT;
+    src: url('../fonts/gt/Bold.woff2');
+    font-weight: 700;
+  }
 </style>
