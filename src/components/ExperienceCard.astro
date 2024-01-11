@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  at?: string;
+  date: string;
+  body: string;
+	bg: string;
+}
+
+const { title, at, date, body, bg } = Astro.props;
+---
+
+<article class=`w-full flex flex-col p-4 gap-2 relative ${bg} rounded-2xl`>
+	<!-- <button class="absolute right-4 top-6" data-toggle-menu>
+		<svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M14.9513 0.706341C14.5611 0.316117 13.9285 0.315773 13.5379 0.70557L8.83133 5.40187C8.44099 5.79137 7.80901 5.79137 7.41867 5.40187L2.71211 0.705568C2.32146 0.315771 1.68889 0.316116 1.29866 0.706339L0.832107 1.1729C0.441582 1.56342 0.441582 2.19659 0.832107 2.58711L7.41789 9.1729C7.80842 9.56342 8.44158 9.56342 8.83211 9.1729L15.4179 2.58711C15.8084 2.19659 15.8084 1.56342 15.4179 1.1729L14.9513 0.706341Z" fill="#12130F"/>
+		</svg>
+	</button> -->
+		
+  <section class="flex flex-col gap-2">
+    <h2 class="font-gt text-lg x768:text-xl">{title}</h2>
+    {at ? <span class="font-acorn text-xs x768:text-sm">{at}</span> : null}
+    <span class="font-acorn text-sm">{date}</span>
+  </section>
+  <p class="font-gt font-light text-base">
+    {body}
+  </p>
+</article>
