@@ -1,9 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ExperienceCard from '../components/ExperienceCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { experiences } from '../constants/experiences';
+import { projects } from '../constants/projects';
 ---
 
 <Layout title='Welcome to Astro.'>
-  <main>
-    <div class='bg-red-500'>Hello World</div>
+  <main class='flex flex-col items-center gap-8'>
+    <HeroSection>
+      <Fragment slot="Title">Hi, I'm <span class="text-Heavy-Green">Hector</span>.</Fragment>
+      <Fragment slot="Paragraph">
+        +2 years of experience in <span class="text-Heavy-Green">Web Development</span>
+        <br />with specialization in <span class="text-Heavy-Green">MERN</span> stack.
+      </Fragment>
+    </HeroSection>
+
+    <section class='flex flex-col gap-8 x768:flex-row'>
+      {experiences.map((exp) => <ExperienceCard {...exp} />)}
+    </section>
+
+    <HeroSection>
+      <Fragment slot="Title">Top <span class="text-Heavy-Green">Projects</span>.</Fragment>
+      <Fragment slot="Paragraph">
+        Explore my passion for <span class="text-Heavy-Green">programming</span>
+        and <span class="text-Heavy-Green">design</span>, these are the <span class="text-Heavy-Green">highlighted projects</span>
+        I have created and <span class="text-Heavy-Green">participated</span> in.
+      </Fragment>
+    </HeroSection>
+
+    {projects.map((exp) => <ProjectCard {...exp} />)}
+    
   </main>
 </Layout>
